@@ -1,0 +1,175 @@
+.file-explorer {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  background-color: transparent;
+  border-right: 1px solid rgba(255, 255, 255, 0.125);
+  overflow-y: auto;
+  height: 100%;
+}
+
+.explorer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.explorer-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #f1f5f9;
+}
+
+.explorer-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.new-file-btn, .new-folder-btn {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  font-size: 12px;
+  padding: 2px 6px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+
+.new-file-btn:hover, .new-folder-btn:hover {
+  background-color: rgba(255,255,255,0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.file-tree {
+  padding: 8px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.file-item {
+  margin: 2px 0;
+  padding: 4px 8px;
+  font-size: 14px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.file-item .file-name {
+  display: flex;
+  align-items: center;
+}
+
+.file-item:hover {
+  background-color: rgba(255,255,255,0.05);
+}
+
+.file-item.selected {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.folder {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  color: #e2e8f0;
+  position: relative;
+  width: 100%;
+}
+
+.folder.expanded {
+  color: #c4b5fd; /* Light version of secondary color */
+}
+
+.file-children {
+  margin-left: 16px;
+  border-left: 1px dashed rgba(255, 255, 255, 0.2);
+  padding-left: 8px;
+}
+
+.delete-btn {
+  display: none;
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  color: #f87171;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0 4px;
+  border-radius: 3px;
+}
+
+.folder-delete-btn {
+  right: 8px;
+  z-index: 10;
+}
+
+.file-item:hover .delete-btn,
+.folder:hover .delete-btn {
+  display: block;
+}
+
+.delete-btn:hover {
+  background-color: rgba(220, 53, 69, 0.2);
+  color: #ef4444;
+}
+
+.new-item-form {
+  padding: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.new-item-form input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.new-item-form input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.form-actions button {
+  flex: 1;
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.form-actions button[type="submit"] {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.form-actions button[type="button"] {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.form-actions button:hover {
+  opacity: 0.9;
+} 

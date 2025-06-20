@@ -1,0 +1,135 @@
+.terminal-container {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.125);
+  overflow: hidden;
+}
+
+.terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.terminal-header h3 {
+  margin: 0;
+  font-size: 14px;
+  color: #ddd;
+}
+
+.terminal-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.run-btn, .clear-btn {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ddd;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.run-btn:hover:not(:disabled) {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: white;
+}
+
+.clear-btn:hover:not(:disabled) {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+}
+
+.run-btn:disabled, .clear-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.terminal-output {
+  flex: 1;
+  padding: 12px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ddd;
+  overflow-y: auto;
+  background-color: transparent;
+  min-height: 80px;
+}
+
+.terminal-output.has-error {
+  color: #f87171;
+}
+
+.terminal-output pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.terminal-placeholder {
+  color: #777;
+  font-style: italic;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.terminal-input-form {
+  display: flex;
+  padding: 8px 12px;
+  background-color: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.125);
+  gap: 8px;
+}
+
+.terminal-input {
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #ddd;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  padding: 6px 8px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+}
+
+.terminal-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.terminal-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.input-submit-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.input-submit-btn:hover:not(:disabled) {
+  background-color: #4f46e5;
+}
+
+.input-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+} 
