@@ -208,8 +208,8 @@ io.on('connection', (socket) => {
       }
     }
     
-    // Broadcast to all users in the room except sender
-    socket.to(roomId).emit('code_update', {
+    // Broadcast to all users in the room (including sender)
+    io.to(roomId).emit('code_update', {
       code,
       languageId: rooms[roomId].languageId,
       filePath
