@@ -19,7 +19,7 @@ const Terminal = ({ code, language }) => {
       // Try server-side execution first for supported languages
       if (['python', 'javascript', 'java'].includes(language)) {
         try {
-          const response = await fetch('/api/execute', {
+          const response = await fetch('https://codecollab-cze2.onrender.com/api/execute', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

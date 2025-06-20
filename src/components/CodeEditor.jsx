@@ -54,7 +54,7 @@ const CodeEditor = ({ room, username }) => {
 
   // Connect to the WebSocket server
   useEffect(() => {
-    socketRef.current = io({
+    socketRef.current = io('https://codecollab-cze2.onrender.com', {
       path: '/api/socket.io'
     });
     const socket = socketRef.current;
