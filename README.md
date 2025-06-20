@@ -151,3 +151,7 @@ npm run dev
 ## License
 
 MIT
+
+## 🚀 Live Demo
+
+Check out the deployed app here: [collab-and-code.vercel.app](https://collab-and-code.vercel.app/)
