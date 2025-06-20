@@ -155,8 +155,9 @@ const CodeEditor = ({ room, username }) => {
     socket.on('file_selected', (data) => {
       if (data.filePath) {
         setCurrentFile(data.filePath);
-        setCodeFromFile(files, data.filePath);
-        
+        if (typeof data.fileContent === 'string') {
+          setCode(data.fileContent);
+        }
         // Update language based on file extension
         const languageId = getLanguageFromFilename(data.filePath);
         const lang = LANGUAGES.find(l => l.id === languageId) || LANGUAGES[0];

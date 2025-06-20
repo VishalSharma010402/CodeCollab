@@ -294,13 +294,21 @@ io.on('connection', (socket) => {
 
   socket.on('select_file', (data) => {
     const { roomId, filePath } = data;
-    
     if (rooms[roomId]) {
       rooms[roomId].currentFile = filePath;
-      
+      // Get the latest file content
+      let fileContent = null;
+      const parts = filePath.split('/');
+      let current = rooms[roomId].files;
+      for (let i = 0; i < parts.length; i++) {
+        if (!current[parts[i]]) break;
+        current = current[parts[i]];
+      }
+      if (typeof current === 'string') fileContent = current;
       // Broadcast file selection to all users in the room except sender
       socket.to(roomId).emit('file_selected', {
-        filePath
+        filePath,
+        fileContent
       });
     }
   });
