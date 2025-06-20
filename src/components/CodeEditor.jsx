@@ -51,6 +51,11 @@ const CodeEditor = ({ room, username }) => {
   const [showTerminal, setShowTerminal] = useState(false);
   const socketRef = useRef(null);
   const userId = useRef(username + '-' + Math.random().toString(36).substr(2, 9));
+  const currentFileRef = useRef(currentFile);
+
+  useEffect(() => {
+    currentFileRef.current = currentFile;
+  }, [currentFile]);
 
   // Connect to the WebSocket server
   useEffect(() => {
@@ -100,7 +105,7 @@ const CodeEditor = ({ room, username }) => {
     
     socket.on('code_update', (updatedData) => {
       if (updatedData) {
-        if (updatedData.filePath && updatedData.filePath === currentFile) {
+        if (updatedData.filePath && updatedData.filePath === currentFileRef.current) {
           setCode(updatedData.code || '');
         } else if (!updatedData.filePath) {
           setCode(updatedData.code || '');
