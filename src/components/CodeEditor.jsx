@@ -54,7 +54,9 @@ const CodeEditor = ({ room, username }) => {
 
   // Connect to the WebSocket server
   useEffect(() => {
-    socketRef.current = io('http://localhost:3001');
+    socketRef.current = io({
+      path: '/api/socket.io'
+    });
     const socket = socketRef.current;
     
     socket.on('connect', () => {

@@ -16,7 +16,10 @@ const io = new Server(server, {
   cors: {
     origin: "*",
     methods: ["GET", "POST"]
-  }
+  },
+  // Vercel-specific configuration for WebSocket support
+  transports: ['websocket', 'polling'],
+  path: '/api/socket.io'
 });
 
 // Store active rooms and their content
@@ -330,4 +333,6 @@ io.on('connection', (socket) => {
 const PORT = process.env.PORT || 3001;
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-}); 
+});
+
+module.exports = app; 
