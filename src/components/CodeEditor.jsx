@@ -227,14 +227,6 @@ const CodeEditor = ({ room, username }) => {
   
   // Handle file selection
   const handleFileSelect = (filePath) => {
-    setCurrentFile(filePath);
-    setCodeFromFile(files, filePath);
-    
-    // Update language based on file extension
-    const languageId = getLanguageFromFilename(filePath);
-    const lang = LANGUAGES.find(l => l.id === languageId) || LANGUAGES[0];
-    setLanguage(lang);
-    
     if (socketRef.current && connected) {
       socketRef.current.emit('select_file', {
         roomId: room,

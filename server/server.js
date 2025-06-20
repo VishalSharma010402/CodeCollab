@@ -305,8 +305,8 @@ io.on('connection', (socket) => {
         current = current[parts[i]];
       }
       if (typeof current === 'string') fileContent = current;
-      // Broadcast file selection to all users in the room except sender
-      socket.to(roomId).emit('file_selected', {
+      // Broadcast file selection to ALL users in the room
+      io.to(roomId).emit('file_selected', {
         filePath,
         fileContent
       });
